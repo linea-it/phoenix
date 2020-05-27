@@ -52,9 +52,7 @@ class Header extends React.Component {
               <img src={Logo} alt="Portal" />
             </IconButton>
 
-            <Typography variant="h6" color="inherit">
-              {window.location.pathname.includes('datasets') == '/datasets/' ? 'Dataset' : 'Developer Interface'}
-            </Typography>
+            <Typography variant="h6" color="inherit">Dataset</Typography>
             <div className={classes.separatorToolBar} />
             <Button
               color="inherit"
