@@ -43,7 +43,7 @@ pipeline {
         curl -D - -X \"POST\" \
         -H \"content-type: application/json\" \
         -H \"X-Rundeck-Auth-Token: $RD_AUTH_TOKEN\" \
-        -d '{\"argString\": \"-namespace $namespace -commit $GIT_COMMIT -image $registry:$GIT_COMMIT -deployment $deployment\"}' \
+        -d '{\"argString\": \"-namespace $namespace -commit $GIT_COMMIT_SHORT -image $registry:$GIT_COMMIT_SHORT -deployment $deployment\"}' \
         https://fox.linea.gov.br/api/1/job/9c5ca707-30b5-4048-9ebe-600d12d3de5e/executions
       """
     }
