@@ -2,6 +2,9 @@ pipeline {
   environment {
     registry = 'linea/phoenix'
     registryCredential = 'Dockerhub'
+    deployment = 'phoenix'
+    namespace = 'phoenix'
+    namespace_prod = 'phoenix'
     dockerImage = ''
     GIT_COMMIT_SHORT = sh(
       script: "printf \$(git rev-parse --short ${GIT_COMMIT})",
@@ -35,7 +38,7 @@ pipeline {
   post {
     always {
       sh "docker rmi $registry:$GIT_COMMIT_SHORT --force"
-      sh "docker rmi $registryBackend:$GIT_COMMIT_SHORT --force"
+      sh "docker rmi $registry:$GIT_COMMIT_SHORT --force"
       sh """
         curl -D - -X \"POST\" \
         -H \"content-type: application/json\" \
