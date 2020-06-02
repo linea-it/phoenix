@@ -38,11 +38,6 @@ pipeline {
       }
     }
     stage('Building and Push Image Release') {
-      when {
-        expression {
-          env.TAG_NAME != null
-        }
-      }
       steps {
         script {
           sh 'docker build -t $registry:$TAG_NAME .'
