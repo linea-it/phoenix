@@ -17,16 +17,6 @@ pipeline {
       }
     }
       stage('Building and push image') {
-        when {
-          allOf {
-            expression {
-              env.TAG_NAME == null
-            }
-            expression {
-              env.BRANCH_NAME.toString().equals('master')
-            }
-          }
-        }
       steps {
         script {
           sh 'docker build -t $registry:$GIT_COMMIT .'
